@@ -10,6 +10,21 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
+
+# Add the executable
+add_executable(wheel_velocities_publisher src/wheel_velocities_publisher.cpp)
+
+ament_target_dependencies(wheel_velocities_publisher
+  rclcpp
+  std_msgs
+)
+
+# Install the executable
+install(TARGETS
+  wheel_velocities_publisher
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
