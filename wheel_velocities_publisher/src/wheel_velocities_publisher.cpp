@@ -34,7 +34,7 @@ public:
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    float wheel_speed = 3.14f;
+    float wheel_speed = 6.28f;
     RCLCPP_INFO(this->get_logger(), "Moving forward");
     execute_movement(wheel_speed, Direction::FORWARD);
 
@@ -78,23 +78,23 @@ private:
       break;
 
     case Direction::LEFT:
-      current_command_.data = {-angular_speed, angular_speed, angular_speed,
-                               -angular_speed};
-      break;
-
-    case Direction::RIGHT:
-      current_command_.data = {angular_speed, -angular_speed, -angular_speed,
+      current_command_.data = {-angular_speed, angular_speed, -angular_speed,
                                angular_speed};
       break;
 
-    case Direction::CLOCKWISE:
+    case Direction::RIGHT:
       current_command_.data = {angular_speed, -angular_speed, angular_speed,
                                -angular_speed};
       break;
 
-    case Direction::COUNTER_CLOCKWISE:
-      current_command_.data = {-angular_speed, angular_speed, -angular_speed,
+    case Direction::CLOCKWISE:
+      current_command_.data = {angular_speed, -angular_speed, -angular_speed,
                                angular_speed};
+      break;
+
+    case Direction::COUNTER_CLOCKWISE:
+      current_command_.data = {-angular_speed, angular_speed, angular_speed,
+                               -angular_speed};
       break;
 
     case Direction::STOP:
