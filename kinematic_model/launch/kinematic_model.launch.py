@@ -10,7 +10,7 @@ import launch
 
 def generate_launch_description():
 
-    wheel_velocities_node = Node(
+    kinematic_model_node = Node(
         package='kinematic_model',
         executable='kinematic_model',
         output='screen',
@@ -19,7 +19,7 @@ def generate_launch_description():
         parameters=[{'use_sim_time': True}]
     )
 
-    kinematic_model_node = Node(
+    wheel_velocities_node = Node(
         package='wheel_velocities_publisher',
         executable='wheel_velocities_publisher',
         output='screen',
